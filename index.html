@@ -422,12 +422,19 @@
     <li>One product or service you’re most proud of</li>
     <li>One brand you admire and why</li>
   </ol>
-  <form class="contact-email" action="#" method="POST" style="margin:2rem 0;">
-    <input type="email" name="email" placeholder="Your email" required style="background:transparent;border:1px solid var(--gold-dim);color:var(--cream);padding:0.75rem 1rem;width:100%;max-width:40ch;margin-bottom:0.75rem;">
-    <button type="submit" class="cta" style="border-color:var(--gold);color:var(--gold);">Request access</button>
-    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.75rem;">Contact form endpoint not configured. Replace action with your form backend.</p>
+  <form class="contact-form" action="#" method="POST" style="margin:2rem 0; max-width: 40ch; margin-left: auto; margin-right: auto;">
+    <div style="margin-bottom: 1rem;">
+      <input type="text" name="name" placeholder="Your name" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;">
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <input type="email" name="email" placeholder="Your email" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;">
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <textarea name="message" rows="4" placeholder="What are you building?" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;resize:vertical;"></textarea>
+    </div>
+    <button type="submit" class="cta" style="border-color:var(--gold);color:var(--gold);width:100%;">Request an audit</button>
+    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.75rem;text-align:center;">We reply within 24 hours. No spam. No noise.</p>
   </form>
-  <p class="text-dim">Response within 24 hours.</p>
 </section>
 
 <!-- Footer -->
