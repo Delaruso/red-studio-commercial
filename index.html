@@ -4,7 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Red Studio — Identity Architecture for the 0.1%</title>
-<meta name="description" content="Psychological branding agency. We build brand systems that feel like inheritance, not invention.">
+  <meta name="robots" content="index, follow">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://grainy-gradients.vercel.app; style-src 'self' https://fonts.googleapis.com https://grainy-gradients.vercel.app; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nine-clocks-do.loca.lt; frame-ancestors 'none';">
+  <meta http-equiv="X-Frame-Options" content="DENY">
+  <meta name="description" content="Psychological branding agency. We build brand systems that feel like inheritance, not invention.">
 <style>
   :root {
     --bg: #0c0a09;
@@ -417,7 +422,11 @@
     <li>One product or service you’re most proud of</li>
     <li>One brand you admire and why</li>
   </ol>
-  <a href="#" class="contact-email" data-email="icelandicexperts@gmail.com" onclick="event.preventDefault();window.location='mailto:'+this.dataset.email;">Request access</a>
+  <form class="contact-email" action="#" method="POST" style="margin:2rem 0;">
+    <input type="email" name="email" placeholder="Your email" required style="background:transparent;border:1px solid var(--gold-dim);color:var(--cream);padding:0.75rem 1rem;width:100%;max-width:40ch;margin-bottom:0.75rem;">
+    <button type="submit" class="cta" style="border-color:var(--gold);color:var(--gold);">Request access</button>
+    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.75rem;">Contact form endpoint not configured. Replace action with your form backend.</p>
+  </form>
   <p class="text-dim">Response within 24 hours.</p>
 </section>
 

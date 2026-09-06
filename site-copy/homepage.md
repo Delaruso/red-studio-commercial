@@ -49,7 +49,7 @@ White-label identity architecture with real myth weight. No templates, no stock 
 
 ## Contact
 
-Email: icelandicexperts@gmail.com
+Email: available on request / via contact form
 Response time: within 24 hours
 
 ---
