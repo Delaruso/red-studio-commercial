@@ -4,12 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Red Studio — Identity Architecture for the 0.1%</title>
-  <meta name="robots" content="index, follow">
-  <meta name="referrer" content="no-referrer">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://grainy-gradients.vercel.app; style-src 'self' https://fonts.googleapis.com https://grainy-gradients.vercel.app; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://nine-clocks-do.loca.lt; frame-ancestors 'none';">
-  <meta http-equiv="X-Frame-Options" content="DENY">
-  <meta name="description" content="Psychological branding agency. We build brand systems that feel like inheritance, not invention.">
+<meta name="description" content="Psychological branding agency. We build brand systems that feel like inheritance, not invention.">
 <style>
   :root {
     --bg: #0c0a09;
@@ -268,25 +263,6 @@
     text-transform: uppercase;
   }
 
-  .artifact-mark {
-    width: 120px;
-    height: 120px;
-    border: 1px solid var(--gold-dim);
-    border-radius: 50%;
-    margin: 0 auto 1.5rem;
-    position: relative;
-    background: radial-gradient(circle at center, rgba(197,160,89,0.12) 0%, transparent 70%);
-  }
-
-  .artifact-mark::after {
-    content: '';
-    position: absolute;
-    inset: 18px;
-    border: 1px solid var(--red);
-    border-radius: 50%;
-    opacity: 0.85;
-  }
-
   /* Contact */
   .contact {
     text-align: center;
@@ -402,14 +378,17 @@
   </div>
 </section>
 
-<!-- Design & Influence -->
+<!-- Proof -->
 <section class="proof">
-  <h2>Design & Influence</h2>
+  <h2>Proof of concept</h2>
   <div class="divider"></div>
-  <p>We don’t design logos. We engineer perception. Every mark, every color, every word is a signal in the noise.</p>
-  <p>What we’ve learned: identity isn’t what you see. It’s what people feel before they think.</p>
-  <p>Propaganda is the wrong word when you own the truth. We build myth. We build systems that make a brand feel inevitable. The Roman dodecahedron taught us something: an object doesn’t need to explain itself. It just needs to exist with authority.</p>
-  <p style="text-align: center; margin-top: 1.5rem; color: var(--gold);">Your logo isn’t a drawing. It’s a frequency.<br>Your brand isn’t a look. It’s a position.<br>Your story isn’t content. It’s architecture.</p>
+  <p>The first artifact of Red Studio: Roman dodecahedron, 2nd-century Gallo-Roman mystery object, rebuilt from historical reference and rendered in aged bronze.</p>
+  <p>This isn’t decoration. It’s proof. Proof that identity work can feel ancient, valuable, and real.</p>
+  <div class="artifact-frame">
+    <img src="Relic_01.png" alt="Roman dodecahedron relic" style="max-width:100%;max-height:100%;object-fit:contain;position:relative;z-index:1;">
+    <div class="artifact-label">Roman Dodecahedron<br>2nd–3rd Century AD<br>Landesmuseum Württemberg</div>
+  </div>
+  <p style="text-align: center; margin-top: 1.5rem;">Your brand deserves an artifact too.</p>
 </section>
 
 <!-- Contact -->
@@ -422,19 +401,8 @@
     <li>One product or service you’re most proud of</li>
     <li>One brand you admire and why</li>
   </ol>
-  <form class="contact-form" action="#" method="POST" style="margin:2rem 0; max-width: 40ch; margin-left: auto; margin-right: auto;">
-    <div style="margin-bottom: 1rem;">
-      <input type="text" name="name" placeholder="Your name" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;">
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <input type="email" name="email" placeholder="Your email" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;">
-    </div>
-    <div style="margin-bottom: 1rem;">
-      <textarea name="message" rows="4" placeholder="What are you building?" required style="background:transparent;border:1px solid var(--border);color:var(--cream);padding:0.75rem 1rem;width:100%;font-family:inherit;resize:vertical;"></textarea>
-    </div>
-    <button type="submit" class="cta" style="border-color:var(--gold);color:var(--gold);width:100%;">Request an audit</button>
-    <p style="font-size:0.8rem;color:var(--text-dim);margin-top:0.75rem;text-align:center;">We reply within 24 hours. No spam. No noise.</p>
-  </form>
+  <a href="mailto:icelandicexperts@gmail.com" class="contact-email">icelandicexperts@gmail.com</a>
+  <p class="text-dim">Response within 24 hours.</p>
 </section>
 
 <!-- Footer -->
