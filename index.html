@@ -263,6 +263,25 @@
     text-transform: uppercase;
   }
 
+  .artifact-mark {
+    width: 120px;
+    height: 120px;
+    border: 1px solid var(--gold-dim);
+    border-radius: 50%;
+    margin: 0 auto 1.5rem;
+    position: relative;
+    background: radial-gradient(circle at center, rgba(197,160,89,0.12) 0%, transparent 70%);
+  }
+
+  .artifact-mark::after {
+    content: '';
+    position: absolute;
+    inset: 18px;
+    border: 1px solid var(--red);
+    border-radius: 50%;
+    opacity: 0.85;
+  }
+
   /* Contact */
   .contact {
     text-align: center;
@@ -382,10 +401,10 @@
 <section class="proof">
   <h2>Proof of concept</h2>
   <div class="divider"></div>
-  <p>The first artifact of Red Studio: Roman dodecahedron, 2nd-century Gallo-Roman mystery object, rebuilt from historical reference and rendered in aged bronze.</p>
+  <p>The first artifact of Red Studio: Roman dodecahedron, 2nd-century Gallo-Roman mystery object. Rebuilt from historical reference. Rendered in aged bronze.</p>
   <p>This isn’t decoration. It’s proof. Proof that identity work can feel ancient, valuable, and real.</p>
   <div class="artifact-frame">
-    <img src="Relic_01.png" alt="Roman dodecahedron relic" style="max-width:100%;max-height:100%;object-fit:contain;position:relative;z-index:1;">
+    <div class="artifact-mark" aria-hidden="true"></div>
     <div class="artifact-label">Roman Dodecahedron<br>2nd–3rd Century AD<br>Landesmuseum Württemberg</div>
   </div>
   <p style="text-align: center; margin-top: 1.5rem;">Your brand deserves an artifact too.</p>
