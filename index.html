@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Red Studio — Identity Architecture for the 0.1%</title>
+<meta name="description" content="Psychological branding agency. We build brand systems that feel like inheritance, not invention.">
+<style>
+  :root {
+    --bg: #0c0a09;
+    --bg-warm: #1c1917;
+    --cream: #f5f0e8;
+    --gold: #c5a059;
+    --gold-dim: #8b7355;
+    --burgundy: #5c1a1b;
+    --forest: #2d3b2d;
+    --red: #ff0001;
+    --text: #e7e5e4;
+    --text-dim: #a8a29e;
+    --border: #292524;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Georgia', 'Times New Roman', serif;
+    line-height: 1.6;
+  }
+
+  body {
+    background: var(--bg);
+    overflow-x: hidden;
+  }
+
+  /* Typography */
+  h1, h2, h3 {
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--cream);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+
+  h3 {
+    font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--text-dim);
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    margin-bottom: 1.2rem;
+    max-width: 65ch;
+  }
+
+  a {
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  a:hover {
+    color: var(--cream);
+  }
+
+  /* Layout */
+  section {
+    padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  /* Hero */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+    padding: clamp(4rem, 10vw, 8rem) clamp(1.5rem, 5vw, 4rem);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(197, 160, 89, 0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(92, 26, 27, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .hero-label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .hero h1 {
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 span {
+    color: var(--red);
+  }
+
+  .hero-sub {
+    font-size: clamp(1.1rem, 2vw, 1.4rem);
+    color: var(--text-dim);
+    max-width: 50ch;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+
+  .cta {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    font-size: 0.95rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .cta:hover {
+    background: var(--gold);
+    color: var(--bg);
+  }
+
+  /* Problem */
+  .problem {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-warm);
+  }
+
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .problem-visual {
+    width: 100%;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--burgundy) 0%, var(--bg) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8rem;
+    color: var(--red);
+    opacity: 0.3;
+    border: 1px solid var(--border);
+  }
+
+  @media (max-width: 768px) {
+    .problem-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  /* Services */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: var(--bg-warm);
+    border: 1px solid var(--border);
+    padding: 2rem;
+    transition: border-color 0.3s;
+  }
+
+  .service-card:hover {
+    border-color: var(--gold-dim);
+  }
+
+  .service-price {
+    font-size: 1.5rem;
+    color: var(--gold);
+    margin: 1rem 0;
+    font-family: 'Georgia', serif;
+  }
+
+  .service-features {
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .service-features li {
+    padding: 0.4rem 0;
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .service-features li:last-child {
+    border-bottom: none;
+  }
+
+  /* Proof */
+  .proof {
+    background: var(--bg-warm);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .artifact-frame {
+    max-width: 600px;
+    margin: 2rem auto;
+    aspect-ratio: 16/10;
+    background: linear-gradient(135deg, #1a1512 0%, #0c0a09 100%);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .artifact-frame::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(197, 160, 89, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .artifact-label {
+    text-align: center;
+    color: var(--gold-dim);
+    font-size: 0.9rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  /* Contact */
+  .contact {
+    text-align: center;
+  }
+
+  .contact-email {
+    font-size: clamp(1.2rem, 3vw, 2rem);
+    color: var(--gold);
+    margin: 2rem 0;
+    display: block;
+  }
+
+  .contact-email:hover {
+    color: var(--cream);
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--text-dim);
+    font-size: 0.85rem;
+  }
+
+  /* Utility */
+  .text-gold { color: var(--gold); }
+  .text-red { color: var(--red); }
+  .text-cream { color: var(--cream); }
+  .text-dim { color: var(--text-dim); }
+
+  .divider {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    margin: 2rem 0;
+  }
+
+  /* Scroll animations */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  section {
+    animation: fadeIn 0.8s ease-out;
+  }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-label">Psychological Branding Agency</div>
+  <h1>Identity Architecture<br>for the <span>0.1%</span></h1>
+  <p class="hero-sub">We build brand systems that feel like inheritance, not invention. Myth, mark, and artifact—wired together so your brand lives in people’s heads like a memory.</p>
+  <a href="#contact" class="cta">Request an audit</a>
+</section>
+
+<!-- Problem -->
+<section class="problem">
+  <div class="problem-grid">
+    <div>
+      <h2>Most brands look like they were designed by committee</h2>
+      <p>Safe. Reversible. Forgetable. You built something real. Your brand should match.</p>
+      <p>We don’t design logos. We engineer identity. The kind that makes a $200 product feel like inheritance.</p>
+    </div>
+    <div class="problem-visual">✦</div>
+  </div>
+</section>
+
+<!-- Services -->
+<section class="services">
+  <h2>What we build</h2>
+  <div class="divider"></div>
+  <div class="services-grid">
+    <div class="service-card">
+      <h3>Sovereign Identity Package</h3>
+      <div class="service-price">€2,500</div>
+      <p class="text-dim">Complete identity system for founders and brands ready to stop looking like everyone else.</p>
+      <ul class="service-features">
+        <li>Brand mythology — PDF + audio narration</li>
+        <li>Visual identity system</li>
+        <li>Signature artifact</li>
+        <li>Story suite — 3 narrative pieces</li>
+        <li>2–3 week delivery</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Identity Audit</h3>
+      <div class="service-price">Free</div>
+      <p class="text-dim">One-page breakdown + 3-minute video showing what’s possible. No strings.</p>
+      <ul class="service-features">
+        <li>Current brand diagnosis</li>
+        <li>One visual direction</li>
+        <li>Three words your brand should own</li>
+        <li>48-hour turnaround</li>
+        <li>Zero obligation</li>
+      </ul>
+    </div>
+    <div class="service-card">
+      <h3>Myth Maintenance</h3>
+      <div class="service-price">€300/mo</div>
+      <p class="text-dim">Ongoing identity refinement for brands that understand myth is never finished.</p>
+      <ul class="service-features">
+        <li>Monthly identity review</li>
+        <li>Asset refinements</li>
+        <li>Story iteration</li>
+        <li>Priority support</li>
+        <li>Cancel anytime</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Proof -->
+<section class="proof">
+  <h2>Proof of concept</h2>
+  <div class="divider"></div>
+  <p>The first artifact of Red Studio: Roman dodecahedron, 2nd-century Gallo-Roman mystery object, rebuilt from historical reference and rendered in aged bronze.</p>
+  <p>This isn’t decoration. It’s proof. Proof that identity work can feel ancient, valuable, and real.</p>
+  <div class="artifact-frame">
+    <img src="Relic_01.png" alt="Roman dodecahedron relic" style="max-width:100%;max-height:100%;object-fit:contain;position:relative;z-index:1;">
+    <div class="artifact-label">Roman Dodecahedron<br>2nd–3rd Century AD<br>Landesmuseum Württemberg</div>
+  </div>
+  <p style="text-align: center; margin-top: 1.5rem;">Your brand deserves an artifact too.</p>
+</section>
+
+<!-- Contact -->
+<section class="contact" id="contact">
+  <h2>Start here</h2>
+  <div class="divider" style="margin: 2rem auto;"></div>
+  <p>Send us three things and we’ll reply with a one-page identity audit:</p>
+  <ol style="text-align: left; color: var(--text-dim); max-width: 40ch; margin: 1.5rem auto; line-height: 2;">
+    <li>Your current logo or brand assets</li>
+    <li>One product or service you’re most proud of</li>
+    <li>One brand you admire and why</li>
+  </ol>
+  <a href="mailto:icelandicexperts@gmail.com" class="contact-email">icelandicexperts@gmail.com</a>
+  <p class="text-dim">Response within 24 hours.</p>
+</section>
+
+<!-- Footer -->
+<footer>
+  <p>Red Studio — Psychological Branding Agency</p>
+  <p style="margin-top: 0.5rem; color: var(--gold-dim);">Built in the Secret Garden. Private by design.</p>
+</footer>
+
+    <script async defer data-website-id="RED_ARCH_01" src="https://nine-clocks-do.loca.lt/script.js"></script>
+</body>
+</html>
